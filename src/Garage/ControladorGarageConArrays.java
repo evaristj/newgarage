@@ -21,17 +21,14 @@ public class ControladorGarageConArrays implements ControladorGaraje{
 		
 		for (Plaza plaza : plazaslibres) {
 			System.out.println(plaza);
-		
 			}
 	}
-
 	
 	@Override
 	public void listarPlazasOcupadas() {
 		
 		List<Plaza> plazasOcupadas= new ArrayList<Plaza>();
 		Plaza[] plazas=GarageMain.getGarage().getPlaza();
-		
 	}
 
 	@Override
