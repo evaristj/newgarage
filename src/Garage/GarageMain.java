@@ -43,12 +43,12 @@ public class GarageMain {
 			System.out.println("" + matricula);
 		}
 		//4 clientes
-				for (int i=0; i<4;i++) {
-					Vehiculo vehiculo = new Vehiculo();
-					Clientes cliente = new Clientes("Nif"+i, "nombreCmpleto"+i, vehiculo);
+		for (int i=0; i<4;i++) {
+			Vehiculo vehiculo = new Vehiculo();
+			Clientes cliente = new Clientes("Nif"+i, "nombreCmpleto"+i, vehiculo);
 					
-					System.out.println(cliente);
-				}
+			System.out.println(cliente);
+			}
 			
 		}		
 
