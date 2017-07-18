@@ -36,7 +36,7 @@ public class Plaza extends GarageMain {
 	
 	@Override
 	public String toString() {
-		return  "Numero de Plaza= " + numeroPlaza +  ", "+ cliente + ", precio = " + precio  ;
+		return  "Numero de Plaza= " + numeroPlaza +  ", cliente= "+ cliente + ", precio = " + precio + ", libre= " + libre ;
 	}
 
 	public Boolean getLibre() {
