@@ -1,4 +1,6 @@
-package Garage;
+package com.everis.alicante.courses.becajava.garage.domain;
+
+import com.everis.alicante.courses.becajava.garage.GarageMain;
 
 public class Vehiculo  extends GarageMain{
 	

@@ -1,4 +1,4 @@
-package Garage;
+package com.everis.alicante.courses.becajava.garage.domain;
 
 public class Cliente extends Plaza{
 	
