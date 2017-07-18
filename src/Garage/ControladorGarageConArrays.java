@@ -24,13 +24,24 @@ public class ControladorGarageConArrays implements ControladorGaraje{
 		
 			}
 	}
-
 	
 	@Override
 	public void listarPlazasOcupadas() {
 		
-		List<Plaza> plazasOcupadas= new ArrayList<Plaza>();
+		List<Plaza> plazasLibres = new ArrayList<Plaza>();
 		Plaza[] plazas=GarageMain.getGarage().getPlaza();
+		
+		for(int i=0;i<plazas.length;i++) {
+			Plaza plaza = plazas[i];
+			if(!plaza.getLibre()) {
+				plazasLibres.add(plaza);
+			}
+		}
+		
+		//listar por pantalla
+		for(Plaza plaza : plazasLibres) {
+			System.out.println(plaza);
+		}
 		
 	}
 

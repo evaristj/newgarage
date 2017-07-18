@@ -1,68 +1,3 @@
-<<<<<<< HEAD
-package Garage;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class GarageMain {
-	
-		
-	public static void main(String[] args) {
-		
-		// TODO Auto-generated method stub
-		
-		//1 garaje
-		
-		inicializarComponentes();
-
-	}
-	
-	public static void inicializarComponentes() {
-		//4 clientes
-		List<Clientes> listClientes = new ArrayList<>();
-		//5 vehiculos
-		List<Vehiculo> listVehiculos = new ArrayList<>();
-		
-		List<Plazas> listPlaza = new ArrayList<>();
-		
-		// 30 plazas de garaje
-		for (int i=0; i<30;i++) {
-			Plazas precio = new Plazas();
-			precio.setPrecio(i); 
-			listPlaza.add(precio);
-			System.out.println(precio);
-			
-		}
-		//5 vehiculos
-		for (int i=0; i<5;i++) {
-			Vehiculo matricula = new Vehiculo();
-			((Vehiculo)(matricula)).setMatricula("34rer");
-			
-			listVehiculos.add(matricula);
-			System.out.println("" + matricula);
-		}
-		//4 clientes
-				for (int i=0; i<4;i++) {
-					Vehiculo vehiculo = new Vehiculo();
-					Clientes cliente = new Clientes("Nif"+i, "nombreCmpleto"+i, vehiculo);
-					
-					System.out.println(cliente);
-				}
-			
-		}		
-
-	private Plazas plaza;
-
-	public Plazas getPlaza() {
-		return getPlaza();
-	}
-
-	public void setPlaza(Plazas plaza) {
-		this.plaza = plaza;
-	}
-
-}
-=======
 package Garage;
 
 import java.util.ArrayList;
@@ -88,7 +23,7 @@ public class GarageMain {
 		System.out.println("Seleccione una opción: ");
 		System.out.println("1: Listar Plazas Libres");
 		System.out.println("2: Listar Plazas Ocupadas");
-		System.out.println("3: Reservar Plazas");
+		System.out.println("3: Reservar una Plaza");
 		System.out.println("4: Listar Clientes");
 		System.out.println("5: Listar Vehiculos");
 		System.out.println("6: Calcular ingresos");
@@ -96,7 +31,7 @@ public class GarageMain {
 //		System.out.println("1: Listar Plazas");
 		Scanner in = new Scanner(System.in);
 		Integer opcion = in.nextInt();
-		System.out.println("Ha elegido la opcion :" + opcion);
+		System.out.println("Ha elegido la opcion: " + opcion);
 		boolean resultado = true;
 		switch (opcion) {
 		case 1:
@@ -119,15 +54,15 @@ public class GarageMain {
 //			break;
 
 		default:
-			System.out.print("Error");
+			System.out.println("Error");
 			break;
 		}
 		
 		if (opcion==3&&resultado) {
-			System.out.println("se ha reservado");
+			System.out.println("se ha reservado tu plaza de garage");
 			
 		}else if (opcion==3){
-			System.out.println("no se ha reservado");
+			System.out.println("no se ha reservado tu plaza de garage");
 
 		}
 		
@@ -173,39 +108,4 @@ public class GarageMain {
 	public static void setGarage(Garage garage) {
 		GarageMain.garage = garage;
 	}
-		
-//		//4 clientes
-//		List<Clientes> listClientes = new ArrayList<>();
-//		//5 vehiculos
-//		List<Vehiculo> listVehiculos = new ArrayList<>();
-//		
-//		List<Plazas> listPlaza = new ArrayList<>();
-//		
-//		// 30 plazas de garaje
-//		for (int i=0; i<30;i++) {
-//			Plazas precio = new Plazas();
-//			precio.setPrecio(i); 
-//			listPlaza.add(precio);
-//			System.out.println(precio);
-//			
-//		}
-//		//5 vehiculos
-//		for (int i=0; i<5;i++) {
-//			Vehiculo matricula = new Vehiculo();
-//			((Vehiculo)(matricula)).setMatricula("34rer");
-//			
-//			listVehiculos.add(matricula);
-//			System.out.println("" + matricula);
-//		}
-//		//4 clientes
-//		for (int i=0; i<4;i++) {
-//			Vehiculo vehiculo = new Vehiculo();
-//			Clientes cliente = new Clientes("Nif"+i, "nombreCmpleto"+i, vehiculo);
-//					
-//			System.out.println(cliente);
-//			}
-//			
-//		}		
-
 }
->>>>>>> 7ac307beac7bf049d7d89e78e3a4fe13bb0f0d87

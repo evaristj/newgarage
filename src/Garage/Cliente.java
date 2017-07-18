@@ -38,7 +38,7 @@ public class Cliente extends Plaza{
 
 	@Override
 	public String toString() {
-		return "Clientes Nombre y apellidos = " + nombreCompleto + ", DNI= " + nif + ", Vehiculo = " + vehiculo;
+		return "Nombre y apellidos= " + nombreCompleto + ", DNI= " + nif + ", Vehiculo= " + vehiculo;
 	}
 
 	public Cliente() {
