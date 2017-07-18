@@ -97,8 +97,6 @@ public class GarageMain {
 		
 		controlador = new ControladorGarageConArrays();
 		
-		System.out.println("test");
-			
 		}
 
 	public static Garage getGarage() {
