@@ -10,8 +10,6 @@ public class GarageMain {
 		
 		// TODO Auto-generated method stub
 		
-		//inicializar los componentes de la aplicacion
-		
 		//1 garaje
 		
 		inicializarComponentes();
