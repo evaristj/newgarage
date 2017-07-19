@@ -1,16 +1,23 @@
-package Garage;
+package com.everis.alicante.courses.becajava.garage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.everis.alicante.courses.becajava.garage.controller.ControladorGarageConArrays;
+import com.everis.alicante.courses.becajava.garage.domain.Garage;
+import com.everis.alicante.courses.becajava.garage.domain.Plaza;
+import com.everis.alicante.courses.becajava.garage.interfaces.ControladorGaraje;
+import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
+import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAOFileImp;
 
 public class GarageMain {
 	
 	static Garage garage;
 	static ControladorGaraje controlador;
 	
-	public static void main(String[] args) {
-		//1 garaje
+	public static void main(String[] args) throws IOException {
 		
 		inicializarComponentes();
 		// iniciar aplicacion o listar menu por pantalla
@@ -18,7 +25,7 @@ public class GarageMain {
 		iniciarAplicacion();
 	}
 	
-	private static void iniciarAplicacion() {
+	private static void iniciarAplicacion() throws IOException {
 		
 		System.out.println("Seleccione una opción: ");
 		System.out.println("1: Listar Plazas Libres");
@@ -70,30 +77,15 @@ public class GarageMain {
 		
 	}
 
-	public static void inicializarComponentes() {
+	public static void inicializarComponentes() throws IOException{
 		garage = new Garage();
 		
-		Plaza[] plaza = new Plaza[30];
+		PlazaDAO plazaDao =new PlazaDAOFileImp();
 		
-		for (int i = 0; i < plaza.length; i++) {
-
-			Plaza plazasTemp = new Plaza();
-			plazasTemp.setNumeroPlaza(i+1);
-			
-			if (i<10) {
-				plazasTemp.setPrecio(50);
-				
-			} else if(i<20){
-				plazasTemp.setPrecio(75);
-				
-			}else {
-				plazasTemp.setPrecio(100);
-			}
-			
-			plaza[i]=plazasTemp;
-		}
+	//	Plaza[] plazas= plazaDao.readPlazas();
+		List<Plaza> plazasTemp= plazaDao.readPlazas();
 		
-		garage.setPlaza(plaza);
+		garage.setPlazas((plazasTemp));
 		
 		controlador = new ControladorGarageConArrays();
 		
@@ -103,7 +95,4 @@ public class GarageMain {
 		return garage;
 	}
 
-	public static void setGarage(Garage garage) {
-		GarageMain.garage = garage;
-	}
 }
