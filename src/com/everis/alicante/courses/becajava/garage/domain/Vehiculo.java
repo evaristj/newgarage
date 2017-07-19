@@ -1,22 +1,28 @@
 package com.everis.alicante.courses.becajava.garage.domain;
 
-import com.everis.alicante.courses.becajava.garage.GarageMain;
-
-public class Vehiculo  extends GarageMain{
+public class Vehiculo {
 	
 	private String matricula;
-
+	private String tipoVehiculo;
+	
 	public String getMatricula() {
 		return matricula;
 	}
+
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehiculo con matrícula = " + matricula;
+
+	public String getTipoVehiculo() {
+		return tipoVehiculo;
+	}
+
+
+	public void setTipoVehiculo(String tipoVehiculo) {
+		this.tipoVehiculo = tipoVehiculo;
 	}
 	
+
 }
