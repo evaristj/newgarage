@@ -8,9 +8,11 @@ import com.everis.alicante.courses.becajava.garage.domain.Garaje;
 import com.everis.alicante.courses.becajava.garage.interfaces.ClienteDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.PlazaDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.ReservaDAO;
+import com.everis.alicante.courses.becajava.garage.interfaces.VehiculoDAO;
 import com.everis.alicante.courses.becajava.garage.interfaces.imp.ClienteDAOFileImpl;
 import com.everis.alicante.courses.becajava.garage.interfaces.imp.PlazaDAOFileImp;
 import com.everis.alicante.courses.becajava.garage.interfaces.imp.ReservaDAOFileImp;
+import com.everis.alicante.courses.becajava.garage.interfaces.imp.VehiculoDAOImpl;
 
 public class GarageMain {
 
@@ -36,6 +38,7 @@ public class GarageMain {
 		System.out.println("2:Listar Plazas Garaje Ocupadas ");
 		System.out.println("3:Reservar Plazas");
 		System.out.println("4:Listar Clientes");
+		System.out.println("5:Listar Reservas");
 		System.out.println("*******************************************************");
 		
 		@SuppressWarnings("resource")
@@ -45,7 +48,7 @@ public class GarageMain {
 	    
 		System.out.println("*******************************************************");
 		System.out.println("Ha elegido la opcion :" + opcion);
-		System.out.println("*******************************************************");
+		System.out.println("-------------------------------------------------------");
 				
 		switch (opcion) {
 			case 1:	
@@ -71,12 +74,12 @@ public class GarageMain {
 		if(opcion==3&&resultado){
 			System.out.println("*******************************************************");
 			System.out.println("Se ha reservado su plaza");
-			System.out.println("*******************************************************");
+			System.out.println("-------------------------------------------------------");
 
 		}else if (opcion==3){
 			System.out.println("*******************************************************");
 			System.out.println("No hay plazas disponibles");
-			System.out.println("*******************************************************");
+			System.out.println("-------------------------------------------------------");
 
 		}
 			
@@ -92,12 +95,15 @@ public class GarageMain {
 		@SuppressWarnings("unused")
 		ReservaDAO reservaDao= new ReservaDAOFileImp();
 		ClienteDAO clienteDao= new ClienteDAOFileImpl();
+		VehiculoDAO  vehiculoDao= new VehiculoDAOImpl();
 		
 		garaje.setPlazas(plazaDao.readPlazas());
 		
-//		garaje.setReservas(reservaDao.readReservas());
-		
 		garaje.setClientes(clienteDao.readClientes());
+		
+		garaje.setVehiculos(vehiculoDao.readVehiculos());
+		
+		garaje.setReservas(reservaDao.readReservas());
 		
 		controlador= new ControladorGarajeImpl();
 	

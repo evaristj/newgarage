@@ -39,7 +39,7 @@ public class ReservaDAOFileImp implements ReservaDAO {
 		
 		 String linea;
 		 
-		 File file= new File("src/resources/Reservas.txt");
+		 File file= new File("resources/Reservas.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 
@@ -56,6 +56,9 @@ public class ReservaDAOFileImp implements ReservaDAO {
 				
 				reserva.setPlaza(plaza);	
 				reserva.setCliente(GarageMain.getGaraje().getClientes().get(temp[2]));
+				
+				reserva.getCliente().setVehiculo(GarageMain.getGaraje().getVehiculos().get(temp[3]));
+				
 				reservas.put(reserva.getCodigoReserva(),reserva);	
 			
 			}
