@@ -44,7 +44,6 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 			 }
 				 
 			 reader.close();		
-			 	  	
 			return  clientes;	
 	}
 
@@ -92,13 +91,11 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 		 }
 			 
 		 reader.close();		
-		 	  	
 		return  clienteTemp;	
 	}
 
 	@Override
 	public void deleteCliente(String nif) {
-		// TODO Auto-generated method stub
 		
 	}
 
