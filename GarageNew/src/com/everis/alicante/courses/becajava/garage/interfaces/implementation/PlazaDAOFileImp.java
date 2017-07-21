@@ -19,7 +19,7 @@ public class PlazaDAOFileImp implements PlazaDAO {
 		
 		 String linea;
 		 
-		 File file= new File("src/resources/Plazas.txt");
+		 File file= new File("resources/Plazas.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 
@@ -60,7 +60,7 @@ public class PlazaDAOFileImp implements PlazaDAO {
 		 String linea;
 		 Plaza plazaTemp = null;
 		 
-		 File file= new File("src/resources/Plazas.txt");
+		 File file= new File("resources/Plazas.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 

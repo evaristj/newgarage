@@ -21,7 +21,7 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 			
 			 String linea;
 			 
-			 File file= new File("src/resources/Clientes.txt");
+			 File file= new File("resources/Clientes.txt");
 			 FileReader reader= new FileReader(file);
 			 BufferedReader  buffer= new BufferedReader(reader);
 			 		 
@@ -50,7 +50,7 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 	@Override
 	public void createCliente(Cliente cliente) throws IOException {
 		
-		 File file= new File("src/resources/Clientes.txt");
+		 File file= new File("resources/Clientes.txt");
 		 FileWriter writer= new FileWriter(file,true);
 		 BufferedWriter  buffer= new BufferedWriter(writer);
 		
@@ -68,7 +68,7 @@ public class ClienteDAOFileImpl implements ClienteDAO {
 		 Cliente clienteTemp=null;			
 		 String linea;
 		 
-		 File file= new File("src/resources/Clientes.txt");
+		 File file= new File("resources/Clientes.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 

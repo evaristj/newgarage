@@ -21,7 +21,7 @@ public class VehiculoDAOFileImpl implements VehiculoDAO {
 		
 		 String linea;
 		 
-		 File file= new File("src/resources/Vehiculos.txt");
+		 File file= new File("resources/Vehiculos.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 
@@ -51,7 +51,7 @@ public class VehiculoDAOFileImpl implements VehiculoDAO {
 	@Override
 	public void createVehiculo(Vehiculo vehiculo) throws IOException{
 		
-		 File file= new File("src/resources/Vehiculos.txt");
+		 File file= new File("resources/Vehiculos.txt");
 		 FileWriter writer= new FileWriter(file,true);
 		 BufferedWriter  buffer= new BufferedWriter(writer);
 		
@@ -70,7 +70,7 @@ public class VehiculoDAOFileImpl implements VehiculoDAO {
 		
 		 String linea;
 		 
-		 File file= new File("src/resources/Vehiculos.txt");
+		 File file= new File("resources/Vehiculos.txt");
 		 FileReader reader= new FileReader(file);
 		 BufferedReader  buffer= new BufferedReader(reader);
 		 		 

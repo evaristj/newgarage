@@ -1,5 +1,6 @@
 package com.everis.alicante.courses.becajava.garage.controller;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
@@ -23,12 +24,12 @@ import com.everis.alicante.courses.becajava.garage.interfaces.implementation.Cli
 import com.everis.alicante.courses.becajava.garage.interfaces.implementation.PlazaDAOFileImp;
 import com.everis.alicante.courses.becajava.garage.interfaces.implementation.ReservaDAOFileImp;
 import com.everis.alicante.courses.becajava.garage.interfaces.implementation.VehiculoDAOFileImpl;
-import com.everis.alicante.courses.becajava.garage.utils.ValidarNif;
+import com.everis.alicante.courses.becajava.garage.utils.ValidadorNIF;
 
 public class ControladorGarajeImpl implements ControladorGaraje{
 
 	@Override
-	public Map<Integer,Plaza> listarPlazasLibres() throws IOException {
+	public Map<Integer,Plaza> listarPlazasLibres() throws IOException, ParseException {
 		
 		PlazaDAO plazaDao= new PlazaDAOFileImp();
 		
@@ -49,7 +50,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	}
 
 	@Override
-	public void listarPlazasOcupadas() throws IOException {		
+	public void listarPlazasOcupadas() throws IOException, ParseException {		
 				
 		ReservaDAO reservaDAO= new ReservaDAOFileImp();
 		
@@ -66,7 +67,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	}
 	
 	@Override
-	public boolean reservarPlaza() throws IOException {
+	public boolean reservarPlaza() throws IOException, ParseException {
 		
 		//logica de crear cliente
 		
@@ -84,19 +85,19 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		Scanner in = new Scanner(System.in);		
 		cliente.setNombreCompleto(in.nextLine());
 		
-		boolean nifCorrecto=false;
-		String nif="";
-		while (!nifCorrecto) {
-			System.out.println("Insert el nif del cliente");	
+		boolean nifCorrecto=false;			
+		String nif="";	
+		
+		while(!nifCorrecto){
+			System.out.println("Inserte el nif del cliente");	
 			in = new Scanner(System.in);
 			nif=in.nextLine();
-			nifCorrecto= ValidarNif.validarNif(nif);
-			if (nifCorrecto==false) {
+			nifCorrecto=ValidadorNIF.validaNif(nif);	
+			if(nifCorrecto==false){
 				System.out.println("NIF INCORRECTO");
 			}
 		}
-		
-		cliente.setNif(in.nextLine());
+		cliente.setNif(nif);
 		
 		Vehiculo vehiculo = null;
 		
@@ -166,6 +167,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		ClienteDAO daoCliente= new ClienteDAOFileImpl();		
 		
 		Map<String, Cliente> clientes = daoCliente.readClientes();;
+				
 		Collection<Cliente> collection = clientes.values();
 		
 		for (Iterator<Cliente> iterator = collection.iterator(); iterator.hasNext();) {
@@ -174,16 +176,18 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 			System.out.println(cliente.getNombreCompleto()+";" + cliente.getNif());			
 					
 		}
+		
 
 	}
 	
 	@Override
-	public void listarReservas() throws IOException {
+	public void listarReservas() throws IOException, ParseException {
 	
 		
 		ReservaDAO reservaDao= new ReservaDAOFileImp();
 		
 		Map<String, Reserva> reservas = reservaDao.readReservas();
+		
 		 Collection<Reserva> listaReservas = reservas.values();
 		 
 		 for (Reserva reserva : listaReservas) {
@@ -200,6 +204,7 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 	public void listarVehiculos() throws IOException {
 		
 		VehiculoDAO daoVehiculo= new VehiculoDAOFileImpl();
+	
 		Collection<Vehiculo> vehiculos = daoVehiculo.readVehiculos().values();
 		
 		for (Vehiculo vehiculo : vehiculos) {
@@ -210,20 +215,26 @@ public class ControladorGarajeImpl implements ControladorGaraje{
 		
 	}
 
+
 	@Override
-	public void listarReservasByFecha(Date fechaInicio, Date fechaFin) {
+	public void listarReservasByFecha(Date fechaInicio, Date fechaFin) throws IOException, ParseException {
+	
+		ReservaDAO reservaDAO= new ReservaDAOFileImp();
 		
-		ReservaDAO reservaDAOnew = ReservaDAOFileImp();
 		Map<String, Reserva> reservas = reservaDAO.readReservas();
 		
 		for (Reserva reserva : reservas.values()) {
 			
-			if (reserva.getFechaReserva().before(fechaFin))&&
-			reserva.getFechaReserva().after(fechaFin)){
+			if(reserva.getFechaReserva().before(fechaFin)&&
+					
+			   reserva.getFechaReserva().after(fechaInicio)){
+				
 				System.out.println("Reserva: "+reserva);
+				
 			}
 			
 		}
+		
 		
 	}
 
